@@ -1,0 +1,14 @@
+
+<h1>Профіль Користувача</h1>
+
+<p>Фото: <%= image_tag(@user.photo) if @user.photo.attached? %></p>
+<p>Ім'я: <%= @user.first_name %></p>
+<p>Прізвище: <%= @user.last_name %></p>
+<p>По батькові: <%= @user.patronymic %></p>
+<p>Дата нарождення: <%= @user.birth_date %></p>
+<p>Користувач: <%= @user.user_name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Номер телефону: <%= @user.phone_number %></p>
+<p>Клас: <%= @user.class_name %></p>
+
+<%= link_to "Редагувати профіль", edit_user_path(current_user), class: "log" %>

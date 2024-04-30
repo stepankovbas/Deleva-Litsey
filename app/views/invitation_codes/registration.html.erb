@@ -1,0 +1,21 @@
+<div class="generate-body">
+
+    <h1>Реєстрація за кодом запрошення</h1>
+    <p>Якщо ви вже зареєструвалися, увійдіть використовуючи ваші дані доступу (логін та пароль). Отримати код запрошення ви можете у адміністратора сайту навчального закладу або у класного керівника.</p>
+
+    <%= form_with url: check_code_path, method: :post, data: { turbo: false } do |form| %>
+        <div class="login-page">
+            <div class="form">
+                <div class="field">
+                    <%= form.label :invitation_code, "Введіть ваш код запрошення:" , class: "reg-label" %>
+                    <%= form.text_field :invitation_code, required: true, autofocus: true, placeholder: "Код запрошення" , class: "reg-input"%>
+                </div>
+
+                <div class="actions">
+                    <%= form.submit "Перевірити код" , class: "form-button"%>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div>

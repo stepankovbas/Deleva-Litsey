@@ -1,0 +1,73 @@
+
+<div>
+
+    <h1>Редагувати профіль</h1>
+
+    <%= form_with(model: @user, local: true) do |form| %>
+        <div class="field">
+            <%= form.label :first_name, "Ім'я" %>
+            <%= form.text_field :first_name %>
+        </div>
+
+        <div class="field">
+            <%= form.label :last_name, "Прізвище" %>
+            <%= form.text_field :last_name %>
+        </div>
+
+        <div class="field">
+            <%= form.label :patronymic, "По-батькові" %>
+            <%= form.text_field :patronymic %>
+        </div>
+
+        <div class="field">
+            <%= form.label :birth_date, "Дата народження" %>
+            <%= form.date_field :birth_date %>
+        </div>
+
+        <div class="field">
+            <%= form.label :phone_number, "Номер телефону" %>
+            <%= form.text_field :phone_number %>
+        </div>
+
+        <div class="field">
+            <%= form.label :email, "Email" %>
+            <%= form.text_field :email %>
+        </div>
+
+        <div class="field">
+            <%= form.label :sex, "Стать" %>
+            <%= form.text_field :sex %>
+        </div>
+
+        <div class="field">
+            <%= form.label :user_name, "Нікнейм" %>
+            <%= form.text_field :user_name %>
+        </div>
+
+        <div class="field">
+            <%= form.label :class_name, "Клас" %>
+            <%= form.text_field :class_name %>
+        </div>
+
+        <div class="field">
+            <%= form.label :work_hours, "Час роботи" %>
+            <%= form.text_field :work_hours %>
+        </div>
+
+        <div class="field">
+            <%= form.label :photo, "Фото" %>
+                <% if @user.photo.attached? %>
+                    <%= image_tag(@user.photo, size: "50x50") %>
+                <% end %>
+            <%= form.file_field :photo %>
+        </div>
+
+        <div class="actions">
+            <%= form.submit "Зберегти зміни" %>
+        </div>
+    <% end %>
+
+    <%= link_to 'Повернутися назад', user_path(current_user) %>
+
+    
+</div>

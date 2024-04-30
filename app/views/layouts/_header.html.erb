@@ -1,0 +1,42 @@
+<header>
+  <div id="logo-container">
+    <%= image_tag('deleva_logo.jpg', id: 'logo') %>
+    <h1 class="logo-name">Делівський <br> ліцей</h1>
+  </div>
+  <nav>
+    <ul>
+      <li class="menu">
+        <%= link_to "Головна сторінка", root_path, class: "menu-link" %>
+      </li>
+      <li class="menu">
+        <%= link_to "Адміністрація", "#", class: "menu-link" %>
+      </li>
+      <li class="menu">
+        <%= link_to "Фотографії", root_path, class: "menu-link" %>
+      </li>
+      <li class="menu">
+        <%= link_to "Файловий архів", root_path, class: "menu-link" %>
+      </li>
+      <li class="menu">
+        <%= link_to "Новини", root_path, class: "menu-link" %>
+      </li>
+      <li class="menu">
+        <%= link_to "Про ліцей", about_path, class: "menu-link" %>
+      </li>
+    </ul>
+  </nav>
+  
+  <% if user_signed_in?%>    
+      <div class="buttons">
+        <%= link_to "Profile", user_path(current_user), class: "log" %>
+        <%= button_to "Log out", session_path(current_user.id), method: :delete, class: "form-button reg" %>
+      </div>      
+  <%else%>
+    <div class="buttons">
+      <%# <button class="log">Login</button> %>
+      <%= link_to "Login", new_session_path, class: "log" %>
+      <%# <button class="reg">Sign up</button> %>
+      <%= link_to "Sign up", registration_path, class: "reg" %>
+    </div>
+  <%end%>
+</header>

@@ -1,0 +1,28 @@
+
+
+<div class="generate-body">
+
+    <h1>LOGIN2</h1>
+
+    <% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %> 
+      </div>
+    <% end %>
+    
+    <%= form_with url: session_path do |form| %>
+        <div class="login-page">
+            <div class="form">
+                <div class="field">
+                    <%= form.email_field :email, required: true, autofocus: true, placeholder: "email" , class: "reg-input"%>
+                    <%= form.password_field :password, required: true, placeholder: "password" , class: "reg-input"%>
+                </div>
+
+                <div class="actions">
+                    <%= form.submit "Надіслати" , class: "form-button"%>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div>

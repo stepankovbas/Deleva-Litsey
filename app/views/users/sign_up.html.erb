@@ -1,0 +1,27 @@
+
+
+<div class="generate-body">
+
+    <h1>SING UP</h1>
+    
+    <%= form_with(model: @user, local: true) do |form| %>
+        <div class="login-page">
+            <div class="form">
+                <div class="field">
+                    <%= form.text_field :first_name, required: true, autofocus: true, placeholder: "Прізвище" , class: "reg-input"%>
+                    <%= form.text_field :last_name, required: true, placeholder: "Ім'я" , class: "reg-input"%>
+                    <%= form.text_field :patronymic, required: true, placeholder: "По батькові" , class: "reg-input"%>
+                    <%= form.text_field :user_name, required: true, placeholder: "Nick name" , class: "reg-input"%>
+                    <%= form.email_field :email, required: true, placeholder: "email" , class: "reg-input"%>
+                    <%= form.password_field :password, required: true, placeholder: "password" , class: "reg-input"%>
+                    <%= form.password_field :password_confirmation, required: true, placeholder: "password confirmation" , class: "reg-input"%>
+                </div>
+
+                <div class="actions">
+                    <%= form.submit "Надіслати" , class: "form-button"%>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div>

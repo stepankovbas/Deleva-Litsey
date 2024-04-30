@@ -1,0 +1,19 @@
+<div class="generate-body">
+    <h1>Генерація запрошувального коду</h1>
+    <%= form_with(model: @invitation_code, local: true, data: { turbo: false }) do |form| %>
+        <div class="login-page">
+            <div class="form">
+                <%= form.label :user_type, "Тип користувача", class: "form-label" %>
+                <%= form.select :user_type, options_for_select(["Вчитель", "Учень"], selected: @invitation_code.user_type), prompt: "Виберіть тип користувача" %>
+                <%= form.submit "Створити код запрошення", class: "form-button" %>
+            </div>
+        </div>
+    <% end %>
+    
+    <% if @invitation_code && @invitation_code.persisted? %>
+        <div class="code-display">
+            <p>Запрошувальний код: <%= @invitation_code.code %></p>
+            <p>Термін дії до: <%= @invitation_code.expires_at.strftime("%d-%m-%Y %H:%M") %></p>
+        </div>
+    <% end %>
+</div>
