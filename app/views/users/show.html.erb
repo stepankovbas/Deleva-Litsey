@@ -5,7 +5,7 @@
 <p>Ім'я: <%= @user.first_name %></p>
 <p>Прізвище: <%= @user.last_name %></p>
 <p>По батькові: <%= @user.patronymic %></p>
-<p>Дата нарождення: <%= @user.birth_date %></p>
+<p>Дата нарождення: <%= @user.birth_date.strftime("%d-%m-%Y") %></p>
 <p>Користувач: <%= @user.user_name %></p>
 <p>Email: <%= @user.email %></p>
 <p>Номер телефону: <%= @user.phone_number %></p>

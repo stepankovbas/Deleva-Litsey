@@ -30,18 +30,24 @@
         </div>
 
         <div class="field">
-            <%= form.label :email, "Email" %>
-            <%= form.text_field :email %>
-        </div>
-
-        <div class="field">
             <%= form.label :sex, "Стать" %>
-            <%= form.text_field :sex %>
+            <%= form.select :sex, ['Чоловік', 'Жінка'], {}, {class: 'select-field'} %>
         </div>
 
         <div class="field">
             <%= form.label :user_name, "Нікнейм" %>
             <%= form.text_field :user_name %>
+        </div>
+
+        <% if @user.errors.any? %>
+            <% @user.errors.full_messages_for(:email).each do |msg| %>
+                <div class="alert alert-danger"> <%= msg %> </div>
+            <% end%>
+        <%end%>
+
+        <div class="field">
+            <%= form.label :email, "Email" %>
+            <%= form.email_field :email %>
         </div>
 
         <div class="field">
@@ -50,9 +56,21 @@
         </div>
 
         <div class="field">
-            <%= form.label :work_hours, "Час роботи" %>
-            <%= form.text_field :work_hours %>
+            <%= form.label :password, "Пароль" %>
+            <%= form.password_field :password %>
         </div>
+
+        <div class="field">
+            <%= form.label :password_confirmation, "Повторіть пароль" %>
+            <%= form.password_field :password_confirmation %>
+        </div>
+
+        <% unless @user.new_record? %>
+            <div class="field">
+                <%= form.label :old_password, "Старий пароль" %>
+                <%= form.password_field :old_password %>
+            </div>
+        <%end%>
 
         <div class="field">
             <%= form.label :photo, "Фото" %>
