@@ -1,0 +1,26 @@
+<p>
+  <strong>Фото:</strong>
+  <%= image_tag(@administrator.photo) if @administrator.photo.attached? %>
+</p>
+
+<p>
+  <strong>Ім'я:</strong>
+  <%= @administrator.first_name %>
+</p>
+
+<p>
+  <strong>Посада:</strong>
+  <%= @administrator.position %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @administrator.phone_number %>
+</p>
+
+<p>
+  <strong>Час роботи:</strong>
+  <%# @administrator.work_hours %>
+</p>
+
+<%= link_to 'Назад', administrators_path %>

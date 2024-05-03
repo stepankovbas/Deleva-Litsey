@@ -1,0 +1,24 @@
+<h1>Список користувачів</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ім'я</th>
+      <th>Email</th>
+      <th>Роль</th>
+      <th>Дії</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %> <%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to 'Редагувати', edit_admin_user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

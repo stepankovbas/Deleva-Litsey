@@ -1,5 +1,9 @@
 class User < ApplicationRecord
 
+    enum role: { student: 0, teacher: 1, admin: 2 }
+
+    before_validation :set_role_from_position, on: :create
+
     has_one_attached :photo
 
     attr_accessor :old_password
@@ -7,7 +11,7 @@ class User < ApplicationRecord
     has_secure_password
     
     # Валідація на присутність
-    validates :first_name, :last_name, :patronymic, :user_name, :email, :password_digest, :role,  presence: true
+    validates :first_name, :last_name, :patronymic, :user_name, :email, :password_digest, :position,  presence: true
 
     validate :correct_old_password, on: :update, if: -> { password.present?}
 
@@ -27,7 +31,18 @@ class User < ApplicationRecord
     # Валідація дати народження (переконайтеся, що дата народження в минулому)
     validate :birth_date_must_be_in_the_past
 
-    private
+    def admin?
+        role == "admin"
+    end 
+
+    private     
+
+    def set_role_from_position
+        return if role.present? || admin?
+        
+        self.role = :student if position == "Учень"
+        self.role = :teacher if position == "Вчитель"
+    end
 
     def correct_old_password
         return if BCrypt::Password.new(password_digest_was).is_password?(old_password)

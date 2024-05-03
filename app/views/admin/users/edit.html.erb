@@ -1,0 +1,64 @@
+<h1>Редагування користувача</h1>
+
+<%= form_with(model: @user, url: admin_user_path(@user), method: :patch) do |form| %>
+  <div class="field">
+    <%= form.label :first_name, "Ім'я" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name, "Прізвище" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patronymic, "По-батькові" %>
+    <%= form.text_field :patronymic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date, "Дата народження" %>
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number, "Номер телефону" %>
+    <%= form.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sex, "Стать" %>
+    <%= form.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_name, "Нікнейм" %>
+    <%= form.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position, "Посада" %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class_name, "Клас" %>
+    <%= form.text_field :class_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :role, "Роль" %>
+    <%= form.select :role, User.roles.keys.map { |role| [role.humanize, role] }, { include_blank: 'Виберіть роль' } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Зберегти зміни" %>
+  </div>
+<% end %>
+
+<%= link_to 'Повернутися назад', admin_users_path %>

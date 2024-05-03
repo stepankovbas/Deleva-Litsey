@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root "main_page#index"
    
   resources :main_pages
-  #resources :administrators
+  resources :administrators
   resources :invitation_codes
   resources :users
   resource :session, only: %i[new create destroy]
@@ -26,4 +26,9 @@ Rails.application.routes.draw do
   get "sign_up" => "users#sign_up", as: "sign_up"
 
   get "about" => "main_page#about", as: "about"
+
+  namespace :admin do
+    resources :users, only: [:index, :edit, :update]
+  end
+
 end

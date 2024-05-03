@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params) 
-        @user.role = session[:user_type]
+        @user.position = session[:user_type]
         if @user.save
             #flash[:success] = "Вітаю ви успішно зареєструвались!"
             session[:user_id] = @user.id

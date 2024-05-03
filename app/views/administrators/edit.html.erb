@@ -1,0 +1,50 @@
+
+<h1>Редагувати адміністратора</h1>
+
+<%= form_with(model: @administrator, local: true) do |form| %>
+  <% if @administrator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@administrator.errors.count, "error") %> заборонило цей запис бути збереженим:</h2>
+
+      <ul>
+      <% @administrator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "Ім'я" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position, "Посада" %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, "Телефон" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :work_hours, "Час роботи" %>
+    <%= form.text_field :work_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo, "Фото" %>
+    <% if @administrator.photo.attached? %>
+      <%= image_tag(@administrator.photo, size: "50x50") %>
+    <% end %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Зберегти зміни" %>
+  </div>
+<% end %>
+
+<%= link_to 'Повернутися назад', administrators_path %>
