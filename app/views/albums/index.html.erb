@@ -1,0 +1,18 @@
+<h1>Список альбомів</h1><br>
+
+<div class="container">
+  <div class="administrator-card">
+    <% @albums.each do |album| %>
+        <h4  class="administrator-name"><%= album.title %></h4>
+        <h5 class="administrator-position"><%= album.description %></h5>
+        <%= image_tag(album.cover_image, class: "administrator-photo") if album.cover_image.attached? %>
+
+        <%= link_to 'Показати', album, class: "show-button" %>
+        <%= link_to 'Редагувати', edit_album_path(album), class: "show-button"%>
+        <%= link_to 'Видалити', album, data: { turbo_method: :delete, turbo_confirm: 'Ви впевнені?' }, class: "delete-button" %>
+        
+    <% end %>
+    </div>
+</div>
+<br><br>
+<%= link_to 'Створити альбом', new_album_path, class: "show-button" %>

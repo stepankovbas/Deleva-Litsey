@@ -1,0 +1,14 @@
+<h1><%= @album.title %></h1><br><br>
+
+
+<p><strong>Опис:</strong> <%= @album.description %></p>
+
+<h2>Фотографії</h2>
+<% @album.photos.each do |photo| %>
+  <%= image_tag(photo, class: "administrator-photo")%>
+<% end %>
+
+<br>
+<%= link_to 'Редагувати', edit_album_path(@album), class: "show-button"%> 
+<%= link_to 'Видалити', @album, data: { turbo_method: :delete, turbo_confirm: 'Ви впевнені?' }, class: "delete-button" %> 
+<%= link_to 'Назад', albums_path, class: "show-button" %>

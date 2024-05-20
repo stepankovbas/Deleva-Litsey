@@ -1,0 +1,29 @@
+<h1>Створити новий альбом</h1>
+
+<%= form_with(model: @album, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :cover_image %>
+    <%= form.file_field :cover_image %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :photos, "Фотографії" %>
+    <%= form.file_field :photos, multiple: true %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit "Створити"  %>
+  </div>
+<% end %>
+
+<%= link_to 'Назад', albums_path %>

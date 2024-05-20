@@ -1,0 +1,33 @@
+<h1>Редагувати альбом</h1>
+
+<%= form_with(model: @album, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :cover_image %>
+    <%= form.file_field :cover_image %>
+    <%= image_tag(@album.cover_image, class: "administrator-photo") if @album.cover_image.attached? %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :photos, "Фотографії" %>
+    <%= form.file_field :photos, multiple: true %>
+    <% @album.photos.each do |photo| %>
+      <%= image_tag(photo, class: "administrator-photo") %>
+    <% end %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit "Оновити", class: "show-button"%>
+  </div>
+<% end %>
+
+<%= link_to 'Назад', albums_path, class: "show-button"%>

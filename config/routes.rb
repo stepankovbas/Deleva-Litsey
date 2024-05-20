@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :invitation_codes
   resources :users
   resource :session, only: %i[new create destroy]
+  resources :albums
 
   
   get "registration" => "invitation_codes#registration", as: "registration" # Для відображення форми
