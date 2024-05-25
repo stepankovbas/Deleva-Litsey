@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_03_094330) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_24_211954) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -43,7 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_094330) do
     t.string "title"
     t.text "description"
     t.string "cover_image"
-    t.string "photos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +52,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_094330) do
     t.string "user_type"
     t.datetime "expires_at"
     t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "album_id", null: false
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_photos_on_album_id"
+  end
+
+  create_table "school_news", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.text "content"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,4 +95,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_094330) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "photos", "albums"
 end

@@ -4,7 +4,6 @@ class CreateAlbums < ActiveRecord::Migration[7.1]
       t.string :title
       t.text :description
       t.string :cover_image
-      t.string :photos
 
       t.timestamps
     end

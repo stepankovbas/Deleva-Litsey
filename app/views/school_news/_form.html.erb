@@ -1,0 +1,38 @@
+<%= form_with(model: school_news) do |form| %>
+  <% if school_news.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(school_news.errors.count, "error") %> prohibited this school_news from being saved:</h2>
+
+      <ul>
+        <% school_news.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo, "Фотографії" %>
+    <%= form.file_field :photo%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

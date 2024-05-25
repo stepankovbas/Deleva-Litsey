@@ -1,0 +1,26 @@
+<div id="<%= dom_id school_news %>">
+  <p>
+    <strong>Title:</strong>
+    <%= school_news.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= school_news.description %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= school_news.content %>
+  </p>
+
+  <p>
+    <strong>Photo:</strong>
+    <% if school_news.photo.present? %>
+      <%= image_tag(school_news.photo, class: "administrator-photo") %>
+    <% else %>
+      No photo available
+    <% end %>
+  </p>
+
+</div>

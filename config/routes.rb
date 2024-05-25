@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :school_news
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,7 +17,8 @@ Rails.application.routes.draw do
   resources :users
   resource :session, only: %i[new create destroy]
   resources :albums
-
+  resources :photos
+  resources :school_news
   
   get "registration" => "invitation_codes#registration", as: "registration" # Для відображення форми
   post "check_code" => "invitation_codes#check_code", as: "check_code"  # Для обробки форми
