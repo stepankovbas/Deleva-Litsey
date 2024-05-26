@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'class_rooms/index'
+  get 'class_rooms/show'
   resources :school_news
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   resources :albums
   resources :photos
   resources :school_news
+  resources :class_rooms
+  resources :teachers_room
   
   get "registration" => "invitation_codes#registration", as: "registration" # Для відображення форми
   post "check_code" => "invitation_codes#check_code", as: "check_code"  # Для обробки форми

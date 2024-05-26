@@ -1,48 +1,106 @@
-<header>
-  <div id="logo-container">
-    <%= image_tag('deleva_logo.jpg', id: 'logo') %>
-    <h1 class="logo-name">Делівський <br> ліцей</h1>
-  </div>
-  <nav>
-    <ul>
-      <li class="menu">
-        <%= link_to "Головна сторінка", root_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Адміністрація", administrators_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Вчительська", administrators_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Класи", administrators_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Фотографії", albums_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Файловий архів", root_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Новини", school_news_index_path, class: "menu-link" %>
-      </li>
-      <li class="menu">
-        <%= link_to "Про ліцей", about_path, class: "menu-link" %>
-      </li>
-    </ul>
-  </nav>
+<link href="https://www.loopple.com/css/app.css" rel="stylesheet">
+<link href="" id="google-font-url" rel="stylesheet">  
+<link href="https://www.loopple.com/css/vendor/choices-navbar.min.css" rel="stylesheet">
+
+  <!-- CSS Links -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<link href="https://demos.creative-tim.com/soft-ui-design-system/assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href="https://demos.creative-tim.com/soft-ui-design-system/assets/css/nucleo-svg.css" rel="stylesheet" />
+
+
+<!-- Main CSS Link -->
+<link rel="stylesheet" href="https://cdn.statically.io/gh/Loopple/loopple-public-assets/main/soft-ui-design-system/css/soft-ui-design-system.css" rel="stylesheet">
   
-  <% if user_signed_in?%>    
-      <div class="buttons">
-        <%= link_to "Profile", user_path(current_user), class: "log" %>
-        <%= button_to "Log out", session_path(current_user.id), method: :delete, class: "form-button reg" %>
-      </div>      
-  <%else%>
-    <div class="buttons">
-      <%# <button class="log">Login</button> %>
-      <%= link_to "Login", new_session_path, class: "log" %>
-      <%# <button class="reg">Sign up</button> %>
-      <%= link_to "Sign up", registration_path, class: "reg" %>
+
+    
+    <div class="navbar bg-gradient-dark py-1 draggable" draggable="true">
+        <%# <div class="container">
+            <div class="d-flex w-lg-50 w-100 text-lg-start text-center justify-content-lg-start justify-content-center mb-lg-0 mb-2">
+                <a href="javascript:;">
+                    <i class="fa fa-facebook-square text-sm text-white" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:;">
+                    <i class="fa fa-twitter text-sm text-white ms-3" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:;">
+                    <i class="fa fa-instagram text-sm text-white ms-3" aria-hidden="true"></i>
+                </a>
+            </div>
+                        
+                <i class="fa fa-phone text-sm text-white ms-auto" aria-hidden="true"></i>
+                <span class="text-sm text-white ms-2">+1 3232 4343</span>
+
+                <i class="fa fa-envelope text-sm text-white ms-4" aria-hidden="true"></i>
+                <span class="text-sm text-white ms-2 me-lg-0 me-auto"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91fdfefee1e1fdf4d1fdfefee1e1fdf4bff2fefc">[email&#160;protected]</a></span>
+        </div> %>
     </div>
-  <%end%>
-</header>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 draggable" draggable="true">
+        <div class="container">
+            <a class="navbar-brand w-8" href="#" data-config-id="brand">
+                <% image_tag('deleva_logo.jpg', width: 80) %>
+
+                <%# <img src="https://www.loopple.com/img/loopple-logo.png" width="80" alt=""> %>
+            </a>
+
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon mt-2">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+                <ul class="navbar-nav navbar-nav-hover ms-auto">
+                    <li class="nav-item mx-2">
+                        <%= link_to "Головна сторінка", root_path, class: "nav-link ps-2 cursor-pointer" %>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <%= link_to "Адміністрація", administrators_path, class: "nav-link ps-2 cursor-pointer" %> 
+                    </li>                   
+                    <li class="nav-item mx-2">
+                        <%= link_to "Класи", class_rooms_index_path, class: "nav-link ps-2 cursor-pointer" %>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <%= link_to "Фотографії", albums_path, class: "nav-link ps-2 cursor-pointer" %>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <%= link_to "Файловий архів", root_path, class: "nav-link ps-2 cursor-pointer" %>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <%= link_to "Новини", school_news_index_path, class: "nav-link ps-2 cursor-pointer" %>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <%= link_to "Про ліцей", about_path, class: "nav-link ps-2 cursor-pointer" %>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <%# <li class="nav-item mx-2">
+                        <a href="javascript:void(0);" class="nav-link ps-2 cursor-pointer">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li> %>
+                    <li class="nav-item ms-2">
+                        <% if user_signed_in?%>    
+                            <div class="buttons">
+                                <%= link_to "Profile", user_path(current_user), class: "btn bg-gradient-dark mb-0" %>
+                                <%= button_to "Log out", session_path(current_user.id), method: :delete, class: "form-button reg" %>
+                            </div>      
+                        <%else%>
+                            <div class="buttons">
+                            <%# <button class="log">Login</button> %>
+                            <%= link_to "Login", new_session_path, class: "log" %>
+                            <%# <button class="reg">Sign up</button> %>
+                            <%= link_to "Sign up", registration_path, class: "reg" %>
+                            </div>
+                        <%end%>
+                    </li>
+                        <%# <a href="javascript:void(0);" class="btn bg-gradient-dark mb-0">
+                            My Account
+                        </a> %>               
+                </ul>
+            </div>
+        </div>
+    </nav>

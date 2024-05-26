@@ -1,14 +1,48 @@
 
-<h1>Профіль Користувача</h1>
+<div class="profile-body">
+  <div class="profile-container">
+    <h1 class="profile-title">Профіль Користувача</h1>
 
-<p>Фото: <%= image_tag(@user.photo) if @user.photo.attached? %></p>
-<p>Ім'я: <%= @user.first_name %></p>
-<p>Прізвище: <%= @user.last_name %></p>
-<p>По батькові: <%= @user.patronymic %></p>
-<p>Дата нарождення: <%= @user.birth_date %></p>
-<p>Користувач: <%= @user.user_name %></p>
-<p>Email: <%= @user.email %></p>
-<p>Номер телефону: <%= @user.phone_number %></p>
-<p>Клас: <%= @user.class_name %></p>
+    <div class="profile-photo">
+      <%= image_tag(@user.photo) if @user.photo.attached? %>
+    </div>
 
-<%= link_to "Редагувати профіль", edit_user_path(current_user), class: "log" %>
+    <div class="profile-details">
+        <p class="detail-row">
+        <span class="detail-label">Ім'я</span>
+        <span class="detail-value"><%= @user.first_name %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">Прізвище</span>
+        <span class="detail-value"><%= @user.last_name %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">По батькові</span>
+        <span class="detail-value"><%= @user.patronymic %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">Дата нарождення</span>
+        <span class="detail-value"><%= @user.birth_date %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">Користувач</span>
+        <span class="detail-value"><%= @user.user_name %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">Email</span>
+        <span class="detail-value"><%= @user.email %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">Номер телефону</span>
+        <span class="detail-value"><%= @user.phone_number %></span>
+        </p>
+        <p class="detail-row">
+        <span class="detail-label">Клас</span>
+        <span class="detail-value"><%= @user.class_name %></span>
+        </p>
+
+    </div>
+
+    <%= link_to "Редагувати профіль", edit_user_path(current_user), class: "edit-profile-btn" %>
+  </div>
+</div>

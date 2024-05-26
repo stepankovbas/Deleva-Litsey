@@ -1,0 +1,20 @@
+<h1>Вчителі</h1>
+
+
+<div class="container">
+    <% @teachers.each do |teacher| %>
+    <div class="administrator-card">
+        <% if teacher.photo.attached? %>
+        <%= image_tag(teacher.photo, class: "administrator-photo") %>
+        <% end %>
+        <h4 class="administrator-name"><%= teacher.first_name + teacher.last_name + teacher.patronymic %></h4>
+        <h5 class="administrator-position"><%= teacher.position %></h5>
+        
+        
+        <%= link_to 'Показати', teachers_room_path(teacher), class: "show-button" %>
+        <% if current_user && current_user.admin? %>
+            <%= link_to 'Видалити', teacher, data: { turbo_method: :delete, turbo_confirm: 'Ви впевнені?' }, class: "delete-button" %>
+        <% end %>
+    </div>
+    <% end %>
+</div>

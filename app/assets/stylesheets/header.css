@@ -1,4 +1,4 @@
-header {
+/* header {
   background-color: rgb(0, 0, 0);
   font-family: "Roboto", sans-serif;
   color: #d0d1d1;
@@ -41,7 +41,7 @@ ul {
 }
 
 li.menu {
-  margin-right: 40px; /* Зменшено відступ */
+  margin-right: 40px; 
 }
 
 .menu-link {
@@ -52,7 +52,7 @@ li.menu {
 
 /* Login / Sing up */
 
-.buttons a{
+/*.buttons a{
   cursor: pointer;
   border: 0;
   border-radius: 4px;
@@ -111,4 +111,4 @@ li.menu {
   background-color: rgba(104, 85, 224, 1);
 }
 
-
+ */

@@ -1,0 +1,191 @@
+:root {
+    --primary-color: rgba(104, 85, 224, 0.9);
+    --secondary-color: #D3D3D3;
+    --background-color: #F5F5F5;
+    --text-color: #333;
+    --border-radius: 10px;
+    --padding: 1rem;
+    --font-family: 'Roboto, sans-serif';
+  }
+  
+    .profile-body {
+      margin: 0;  
+      padding-bottom: 0;   
+      font-family: "Roboto", sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #FC466B;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+    }
+  
+    .profile-container {
+      background: white;
+      padding: var(--padding);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+  
+      .profile-title {
+      font-size: 2rem;
+      margin-bottom: var(--padding);
+      color: var(--primary-color);
+      }
+  
+      .profile-photo img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: var(--padding);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+      }
+  
+      .profile-details {
+      text-align: left;
+      margin-bottom: var(--padding);
+      }
+  
+      .profile-details p {
+      margin: 0.5rem 0;
+      }
+  
+      .detail-label {
+      font-weight: bold;
+      color: var(--primary-color);
+      }
+
+      .detail-row {
+        margin: 0.5rem 0;
+        padding: 0.5rem; /* Add padding for better spacing */
+        background-color: #F5F5F5; /* Gray color for even rows by default */
+         /* Make the rows 100% wide */
+      }
+
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .detail-label {
+        flex: 1; /* Займає всю доступну ширину з лівого боку */
+        text-align: left; /* Вирівнює текст зліва */
+      }
+      
+      .detail-value {
+        flex: 1; /* Займає всю доступну ширину з правого боку */
+        text-align: right; /* Вирівнює текст справа */
+      }
+         
+
+      .detail-row:nth-child(even) {
+        background-color: #ffffff;
+      }
+      
+      .detail-row:nth-child(odd) {
+        background-color: #F5F5F5; 
+      }
+  
+      .edit-profile-btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+  
+      .edit-profile-btn:hover {
+      background-color: rgba(104, 85, 224, 0.7);
+      }
+
+
+      /* EDIT */
+
+    .edit-profile-body {
+        margin: 0;
+        padding: 2vh;   
+        padding-bottom: 0;   
+        font-family: "Roboto", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: #FC466B;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          
+    }
+
+    .profile-input,
+    .select-field{
+        border: 2px solid var(--primary-color); /* Додає тонку синю границю */
+        border-radius: var(--border-radius); /* Закруглює кути */
+        padding: 10px; /* Збільшує відступи */
+        margin-bottom: 10px; /* Додає відступ між полями */
+        transition: border-color 0.3s; /* Додає плавний перехід для границі */
+        text-align: center; 
+        width: 250px;
+    }
+
+    .profile-input:focus,
+    .select-field:focus,
+    .profile-photo input[type="file"]:focus {
+    border-color: var(--secondary-color); /* Змінює колір границі при фокусі */
+    }
+
+    .profile-input::placeholder,
+    .select-field::placeholder {
+    color: var(--text-color); /* Змінює колір тексту заповнювача */
+    }
+
+    .edit-photo {
+    text-align: center; /* Вирівнює фото по центру */
+    }
+
+    .edit-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Додає відступ між фото та іншими полями */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Додає тінь для фото */
+    }
+
+      
+    .edit1-profile-btn {
+        display: block;
+        margin: 20px auto; /* Вирівнює кнопку по центру горизонтально */
+    }
+
+    .edit1-profile-btn {       
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+  
+      .edit1-profile-btn:hover {
+      background-color: rgba(104, 85, 224, 0.7);
+      }
+
+      
+

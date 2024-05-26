@@ -1,0 +1,26 @@
+<p>
+  <strong>Фото:</strong>
+  <%= image_tag(@teacher.photo) if @teacher.photo.attached? %>
+</p>
+
+<p>
+  <strong>Ім'я:</strong>
+  <%= @teacher.first_name %>
+</p>
+
+<p>
+  <strong>Посада:</strong>
+  <%= @teacher.position %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @teacher.phone_number %>
+</p>
+
+<p>
+  <strong>Час роботи:</strong>
+  <%# @administrator.work_hours %>
+</p>
+
+<%= link_to 'Назад', teachers_room_index_path %>

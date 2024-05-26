@@ -1,91 +1,117 @@
-
-<div>
-
-    <h1>Редагувати профіль</h1>
+<div class="edit-profile-body">
+  <div class="profile-container">
+    <h1 class="profile-title">Редагувати профіль</h1>
 
     <%= form_with(model: @user, local: true) do |form| %>
-        <div class="field">
-            <%= form.label :first_name, "Ім'я" %>
-            <%= form.text_field :first_name %>
+      <div class="profile-details">
+        <div class="detail-row">
+          <div class="detail-label">Ім'я:</div>
+          <div class="detail-value">
+            <%= form.text_field :first_name, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :last_name, "Прізвище" %>
-            <%= form.text_field :last_name %>
+        <div class="detail-row">
+          <div class="detail-label">Прізвище:</div>
+          <div class="detail-value">
+            <%= form.text_field :last_name, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :patronymic, "По-батькові" %>
-            <%= form.text_field :patronymic %>
+        <div class="detail-row">
+          <div class="detail-label">По-батькові:</div>
+          <div class="detail-value">
+            <%= form.text_field :patronymic, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :birth_date, "Дата народження" %>
-            <%= form.date_field :birth_date %>
+        <div class="detail-row">
+          <div class="detail-label">Дата народження:</div>
+          <div class="detail-value">
+            <%= form.date_field :birth_date, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :phone_number, "Номер телефону" %>
-            <%= form.text_field :phone_number %>
+        <div class="detail-row">
+          <div class="detail-label">Номер телефону:</div>
+          <div class="detail-value">
+            <%= form.text_field :phone_number, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :sex, "Стать" %>
-            <%= form.select :sex, ['Чоловік', 'Жінка'], {}, {class: 'select-field'} %>
+        <div class="detail-row">
+          <div class="detail-label">Стать:</div>
+          <div class="detail-value">
+            <%= form.select :sex, ['Чоловік', 'Жінка'], {}, {class: 'select-field profile-input'} %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :user_name, "Нікнейм" %>
-            <%= form.text_field :user_name %>
+        <div class="detail-row">
+          <div class="detail-label">Нікнейм:</div>
+          <div class="detail-value">
+            <%= form.text_field :user_name, class: "profile-input" %>
+          </div>
         </div>
 
         <% if @user.errors.any? %>
-            <% @user.errors.full_messages_for(:email).each do |msg| %>
-                <div class="alert alert-danger"> <%= msg %> </div>
-            <% end%>
-        <%end%>
+          <% @user.errors.full_messages_for(:email).each do |msg| %>
+            <div class="alert alert-danger"> <%= msg %> </div>
+          <% end %>
+        <% end %>
 
-        <div class="field">
-            <%= form.label :email, "Email" %>
-            <%= form.email_field :email %>
+        <div class="detail-row">
+          <div class="detail-label">Email:</div>
+          <div class="detail-value">
+            <%= form.email_field :email, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :class_name, "Клас" %>
-            <%= form.text_field :class_name %>
+        <div class="detail-row">
+          <div class="detail-label">Клас:</div>
+          <div class="detail-value">
+            <%= form.text_field :class_name, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :password, "Пароль" %>
-            <%= form.password_field :password %>
+        <div class="detail-row">
+          <div class="detail-label">Пароль:</div>
+          <div class="detail-value">
+            <%= form.password_field :password, class: "profile-input" %>
+          </div>
         </div>
 
-        <div class="field">
-            <%= form.label :password_confirmation, "Повторіть пароль" %>
-            <%= form.password_field :password_confirmation %>
+        <div class="detail-row">
+          <div class="detail-label">Повторіть пароль:</div>
+          <div class="detail-value">
+            <%= form.password_field :password_confirmation, class: "profile-input" %>
+          </div>
         </div>
 
         <% unless @user.new_record? %>
-            <div class="field">
-                <%= form.label :old_password, "Старий пароль" %>
-                <%= form.password_field :old_password %>
+          <div class="detail-row">
+            <div class="detail-label">Старий пароль:</div>
+            <div class="detail-value">
+              <%= form.password_field :old_password, class: "profile-input" %>
             </div>
-        <%end%>
+          </div>
+        <% end %>
 
-        <div class="field">
-            <%= form.label :photo, "Фото" %>
-                <% if @user.photo.attached? %>
-                    <%= image_tag(@user.photo, size: "50x50") %>
-                <% end %>
-            <%= form.file_field :photo %>
+        <div class="detail-row">
+          <div class="detail-label">Фото:</div>
+          <div class="detail-value">
+            <% if @user.photo.attached? %>
+              <%= image_tag(@user.photo, size: "50x50", class: "edit-photo") %>
+            <% end %>
+            <%= form.file_field :photo, class: "select-photo" %>
+          </div>
         </div>
 
         <div class="actions">
-            <%= form.submit "Зберегти зміни" %>
+          <%= form.submit "Зберегти зміни", class: "edit1-profile-btn" %>
         </div>
+      </div>
     <% end %>
 
-    <%= link_to 'Повернутися назад', user_path(current_user) %>
-
-    
+    <%= link_to 'Повернутися назад', user_path(current_user), class: "edit-profile-btn" %>
+  </div>
 </div>

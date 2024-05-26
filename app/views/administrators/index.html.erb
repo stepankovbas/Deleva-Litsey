@@ -1,20 +1,23 @@
-<h1>Адміністрація</h1>
+<div class="administrators">
+
+    <h1>Адміністрація</h1>
 
 
-<div class="container">
-    <% @administrators.each do |administrator| %>
-    <div class="administrator-card">
-        <% if administrator.photo.attached? %>
-        <%= image_tag(administrator.photo, class: "administrator-photo") %>
-        <% end %>
-        <h4 class="administrator-name"><%= administrator.first_name + administrator.last_name + administrator.patronymic %></h4>
-        <h5 class="administrator-position"><%= administrator.position %></h5>
-        
-        
-        <%= link_to 'Показати', administrator_path(administrator), class: "show-button" %>
-        <% if current_user && current_user.admin? %>
-            <%= link_to 'Видалити', administrator, data: { turbo_method: :delete, turbo_confirm: 'Ви впевнені?' }, class: "delete-button" %>
+    <div class="container">
+        <% @administrators.each do |administrator| %>
+        <div class="administrator-card">
+            <% if administrator.photo.attached? %>
+            <%= image_tag(administrator.photo, class: "administrator-photo") %>
+            <% end %>
+            <h4 class="administrator-name"><%= administrator.first_name + administrator.last_name + administrator.patronymic %></h4>
+            <h5 class="administrator-position"><%= administrator.position %></h5>
+            
+            
+            <%= link_to 'Показати', administrator_path(administrator), class: "show-button" %>
+            <% if current_user && current_user.admin? %>
+                <%= link_to 'Видалити', administrator, data: { turbo_method: :delete, turbo_confirm: 'Ви впевнені?' }, class: "delete-button" %>
+            <% end %>
+        </div>
         <% end %>
     </div>
-    <% end %>
 </div>

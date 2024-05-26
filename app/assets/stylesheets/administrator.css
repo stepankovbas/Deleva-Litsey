@@ -1,3 +1,7 @@
+.administrators{
+  padding-top: 15vh;
+}
+
 .administrator-card {
   display: flex;
   flex-direction: column;
@@ -57,5 +61,5 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-
+  padding-top: 2vh;
 }
