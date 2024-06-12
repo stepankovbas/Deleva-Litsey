@@ -56,7 +56,7 @@
     <%= form.select :role, User.roles.keys.map { |role| [role.humanize, role] }, { include_blank: 'Виберіть роль' } %>
   </div>
 
-  <div class="actions">
+  <div class="">
     <%= form.submit "Зберегти зміни" %>
   </div>
 <% end %>

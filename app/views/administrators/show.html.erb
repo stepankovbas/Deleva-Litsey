@@ -1,26 +1,32 @@
-<p>
-  <strong>Фото:</strong>
-  <%= image_tag(@administrator.photo) if @administrator.photo.attached? %>
-</p>
+<div class ="review-container">
 
-<p>
-  <strong>Ім'я:</strong>
-  <%= @administrator.first_name %>
-</p>
+  <div class="image-container">
+    <%= image_tag(@administrator.photo)if @administrator.photo.attached? %>
+  </div>
 
-<p>
-  <strong>Посада:</strong>
-  <%= @administrator.position %>
-</p>
 
-<p>
-  <strong>Телефон:</strong>
-  <%= @administrator.phone_number %>
-</p>
+  <div class="main-content-container">        
 
-<p>
-  <strong>Час роботи:</strong>
-  <%# @administrator.work_hours %>
-</p>
+    <p class="field-info">
+        <strong>Ім'я:</strong>
+        <%= @administrator.first_name %>
+    </p>
 
-<%= link_to 'Назад', administrators_path %>
+    <p class="field-info">
+        <strong>Посада:</strong>
+        <%= @administrator.position %>
+    </p>
+
+    <p class="field-info">
+        <strong>Телефон:</strong>
+        <%= @administrator.phone_number %>
+    </p>
+
+    <p class="field-info">
+        <strong>Час роботи:</strong>
+        <%# @administrator.work_hours %>
+          08.00 - 18.00 
+    </p>
+  </div>
+  <%= link_to 'Назад', administrators_path %>
+</div>

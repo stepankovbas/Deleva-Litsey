@@ -7,7 +7,8 @@
         <% if teacher.photo.attached? %>
         <%= image_tag(teacher.photo, class: "administrator-photo") %>
         <% end %>
-        <h4 class="administrator-name"><%= teacher.first_name + teacher.last_name + teacher.patronymic %></h4>
+
+        <h4 class="administrator-name"><%= "#{teacher.first_name} #{teacher.last_name} #{teacher.patronymic}" %></h4>
         <h5 class="administrator-position"><%= teacher.position %></h5>
         
         

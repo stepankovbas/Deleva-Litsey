@@ -21,7 +21,7 @@ class User < ApplicationRecord
     # Валідація формату електронної пошти
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-    # Валідація формату номера телефону (припустимо, що ви хочете використовувати простий формат)
+    # Валідація формату номера телефону
     validates :phone_number, format: { with: /\A\+\d{10,15}\z/ },
                                 allow_blank: true
 

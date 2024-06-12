@@ -52,7 +52,7 @@ li.menu {
 
 /* Login / Sing up */
 
-/*.buttons a{
+.buttons a{
   cursor: pointer;
   border: 0;
   border-radius: 4px;
@@ -79,7 +79,7 @@ li.menu {
 .log, .log:hover {
   color: rgb(104, 85, 224);
   background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(104, 85, 224, 1);
+  border: 1px rgba(104, 85, 224, 1);
 }
 
 .buttons a:hover {
@@ -111,4 +111,9 @@ li.menu {
   background-color: rgba(104, 85, 224, 1);
 }
 
- */
+.button-container {
+  display: flex;
+  gap: 10px; /* Відстань між кнопками, можна змінити на бажану */
+  align-items: center; /* Вирівнювання по вертикалі, якщо потрібно */
+}
+

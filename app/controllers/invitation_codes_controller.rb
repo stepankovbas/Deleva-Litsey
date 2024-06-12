@@ -7,7 +7,7 @@ class InvitationCodesController < ApplicationController
 
   def create
     @invitation_code = InvitationCode.new(invitation_code_params)
-    @invitation_code.code = SecureRandom.hex(4)  # Генерувати код
+    @invitation_code.code = SecureRandom.hex(4) 
     @invitation_code.expires_at = Time.now + 24.hours
     @invitation_code.active = true
 

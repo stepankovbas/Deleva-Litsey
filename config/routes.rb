@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'file_archive/index'
+  get 'file_archive/show'
   get 'class_rooms/index'
   get 'class_rooms/show'
-  resources :school_news
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
   resources :school_news
   resources :class_rooms
   resources :teachers_room
+  resources :file_archive
   
   get "registration" => "invitation_codes#registration", as: "registration" # Для відображення форми
   post "check_code" => "invitation_codes#check_code", as: "check_code"  # Для обробки форми

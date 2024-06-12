@@ -20,6 +20,11 @@ class Admin::UsersController < ApplicationController
         render :edit
       end
     end
+
+    def destroy
+      @user.destroy
+      redirect_to admin_users_url, notice: 'Користувачa успішно видалено.'
+  end
   
     private
   
@@ -32,4 +37,6 @@ class Admin::UsersController < ApplicationController
     end
 
   end
+  
+
   

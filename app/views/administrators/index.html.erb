@@ -9,7 +9,7 @@
             <% if administrator.photo.attached? %>
             <%= image_tag(administrator.photo, class: "administrator-photo") %>
             <% end %>
-            <h4 class="administrator-name"><%= administrator.first_name + administrator.last_name + administrator.patronymic %></h4>
+            <h4 class="administrator-name"><%= "#{administrator.first_name} #{administrator.last_name} #{administrator.patronymic}" %></h4>
             <h5 class="administrator-position"><%= administrator.position %></h5>
             
             

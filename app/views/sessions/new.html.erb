@@ -8,7 +8,9 @@
          <%= flash[:alert] %> 
       </div>
     <% end %>
-    
+
+    <h1>Увійти</h1>
+
     <%= form_with url: session_path do |form| %>
         <div class="login-page">
             <div class="form">
@@ -17,7 +19,7 @@
                     <%= form.password_field :password, required: true, placeholder: "password" , class: "reg-input"%>
                 </div>
 
-                <div class="actions">
+                <div class="">
                     <%= form.submit "Надіслати" , class: "form-button"%>
                 </div>
             </div>
